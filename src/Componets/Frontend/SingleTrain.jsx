@@ -7,14 +7,17 @@ function SingleTrain() {
   const [train, setTrain] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://20.244.56.144/train/trains/${trainNumber}`)
-      .then((response) => {
+    async function fetchTrainData() {
+      try {
+        const response = await axios.get(`http://20.244.56.144/train/trains/${trainNumber}`);
         setTrain(response.data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Error fetching data:', error);
         setTrain(null);
-      });
+      }
+    }
+
+    fetchTrainData();
   }, [trainNumber]);
 
   return (
