@@ -9,7 +9,7 @@ function App() {
     
     <Router>
       <Switch>
-        <Route path="/" exact component={Trains} />
+        <Route path="/tra" exact component={Trains} />
         <Route path="/train/:trainNumber" component={SingleTrain} />
       
       </Switch>
